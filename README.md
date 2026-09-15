@@ -4,6 +4,16 @@ Compute weighted tree adjacency and shortest-path distance matrices from neuron 
 
 Includes two source motor-neuron SWCs (Ti8 and Ti9), a 180° rotation control, controlled branch deformations, shuffled target ordering, and **252 deformation-study solver runs**. All source vertices are retained. The visualizer links seven matrix panels to 3D skeletons and transport connectors, with experiment, ordering-protocol, and initialization selectors.
 
+## Example: Ti8 ↔ Ti9
+
+![Two motor-neuron SWC trees with GW transport connectors above their tree-distance matrices and transport plan.](assets/gw-demonstration.png)
+
+**Top:** all SWC nodes and parent–child edges, shown in an orthographic projection of their 3D coordinates and translated apart for readability. The 394 connectors represent positive entries of the saved GW transport plan; thicker, darker lines carry more mass. These are estimated correspondences between two different neurons, not known biological matches.
+
+**Below:** the Ti8 distance matrix, the transport plan (Ti8 rows × Ti9 columns), and the Ti9 distance matrix. Distances sum segment lengths along tree paths and share a color scale. Transport colors use a square-root scale to expose smaller masses. The resulting **GW distance is 12.162 native units** under the convention described below.
+
+This static preview renders directly on GitHub. Use the offline interactive viewer for rotation, matrix/node hover, and deformation experiments. [Download the vector figure](assets/gw-demonstration.svg).
+
 ## Open the results
 
 Open **[index.html](index.html)** in Chrome, Edge, or Firefox. Download or clone the repository first; GitHub's HTML source preview does not run the viewer. The committed page is self-contained and works offline without Python, Node, Codex, or a server. Chrome is covered by the browser checks.
@@ -81,3 +91,14 @@ Coordinate units are unverified native units. These are local-solver results for
 | `checks/` | Browser tests and captured validation reports |
 
 Read [original methods](README_compute.md), [rotation results](rotation_180/README.md), [deformation results and limitations](deformation_study/README.md), and [interaction details](README_experiments.md). Third-party library notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Rebuild the README figure
+
+After installing the analysis dependencies:
+
+```sh
+python -m pip install -r requirements-figure.txt
+python make_readme_figure.py
+```
+
+The script reads the bundled SWCs and saved `matrices.npz`, then writes PNG and SVG figures under `assets/`; it does not rerun the solver.
