@@ -1,0 +1,5 @@
+*.csv whitespace=cr-at-eol
+browser_vendor/** -whitespace
+index.html -whitespace
+
+*.swc -text whitespace=cr-at-eol

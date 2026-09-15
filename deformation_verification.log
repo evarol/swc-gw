@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "nRuns": 252,
+  "checks": [
+    {
+      "case": "rotation",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_isometric",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_02",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_05",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_10",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_20",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    },
+    {
+      "case": "bend_40",
+      "checkedRuns": 36,
+      "maxGraphMatrixError": 0.0,
+      "maxObjectiveError": 0.0,
+      "maxMarginalError": 1.734723475976807e-18,
+      "matchedInitialDifference": 0.0,
+      "matchedTransportDifference": 0.0
+    }
+  ],
+  "maxObjectiveError": 0.0,
+  "summary": [
+    {
+      "case": "rotation",
+      "bowAmplitude": 0.0,
+      "rmsDeltaD": 1.468557615628448e-14,
+      "bestGW": 7.34278807814224e-15,
+      "knownCorrespondenceGW": 7.34278807814224e-15,
+      "trueMatchMass": 0.9999999999999998,
+      "affectedMatchMass": 0.9999999999999999,
+      "meanPathError": 0.0,
+      "randomMedianMatch": 0.14851485148514854,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_isometric",
+      "bowAmplitude": 0.0,
+      "rmsDeltaD": 2.349036592141662e-14,
+      "bestGW": 1.174518296070831e-14,
+      "knownCorrespondenceGW": 1.174518296070831e-14,
+      "trueMatchMass": 0.9999999999999998,
+      "affectedMatchMass": 0.9999999999999999,
+      "meanPathError": 0.0,
+      "randomMedianMatch": 0.14851485148514854,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_02",
+      "bowAmplitude": 0.02,
+      "rmsDeltaD": 0.21978066951313813,
+      "bestGW": 0.10989033475656906,
+      "knownCorrespondenceGW": 0.10989033475656906,
+      "trueMatchMass": 0.9999999999999998,
+      "affectedMatchMass": 0.9999999999999999,
+      "meanPathError": 0.0,
+      "randomMedianMatch": 0.14851485148514854,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_05",
+      "bowAmplitude": 0.05,
+      "rmsDeltaD": 0.5334014551455181,
+      "bestGW": 0.26670072757275903,
+      "knownCorrespondenceGW": 0.26670072757275903,
+      "trueMatchMass": 0.9999999999999998,
+      "affectedMatchMass": 0.9999999999999999,
+      "meanPathError": 0.0,
+      "randomMedianMatch": 0.14851485148514854,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_10",
+      "bowAmplitude": 0.1,
+      "rmsDeltaD": 1.0900024326334743,
+      "bestGW": 0.5415649981724692,
+      "knownCorrespondenceGW": 0.5450012163167371,
+      "trueMatchMass": 0.98019801980198,
+      "affectedMatchMass": 0.9550561797752807,
+      "meanPathError": 0.3691349620465789,
+      "randomMedianMatch": 0.09900990099009901,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_20",
+      "bowAmplitude": 0.2,
+      "rmsDeltaD": 2.7024691026859666,
+      "bestGW": 1.359453120966372,
+      "knownCorrespondenceGW": 1.3512345513429833,
+      "trueMatchMass": 0.9158415841584158,
+      "affectedMatchMass": 0.8089887640449438,
+      "meanPathError": 1.4087786982343145,
+      "randomMedianMatch": 0.07920792079207921,
+      "maxMatchedStartTransportDifference": 0.0
+    },
+    {
+      "case": "bend_40",
+      "bowAmplitude": 0.4,
+      "rmsDeltaD": 8.560869783324721,
+      "bestGW": 4.424258301718535,
+      "knownCorrespondenceGW": 4.2804348916623605,
+      "trueMatchMass": 0.8069306930693069,
+      "affectedMatchMass": 0.6067415730337079,
+      "meanPathError": 4.728686489448062,
+      "randomMedianMatch": 0.10891089108910891,
+      "maxMatchedStartTransportDifference": 0.0
+    }
+  ]
+}

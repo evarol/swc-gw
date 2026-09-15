@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js",
+    "file": "browser_vendor/5e378598ab8e.js",
+    "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
+    "bytes": 279706
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js",
+    "file": "browser_vendor/9eca01ce4100.js",
+    "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2",
+    "bytes": 603445
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js",
+    "file": "browser_vendor/1b307bf3cbda.js",
+    "sha256": "02bb4ade710f3e607329e37a21f098bc3ac70eb6e33daf8a65e79f4db785e7b2",
+    "bytes": 26375
+  },
+  {
+    "url": "https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js",
+    "file": "browser_vendor/482bbee2d018.js",
+    "sha256": "6985ce661153c01d97f6be9babb6a9566f923c716c2b7fbead48fbb09f419ba8",
+    "bytes": 12529
+  },
+  {
+    "url": "https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js",
+    "file": "browser_vendor/bda0ac59fe1d.js",
+    "sha256": "b8199f76adccb9b17b3ab57124c42585dc19197127d1a5d19307d1983f80bd89",
+    "bytes": 10251
+  },
+  {
+    "url": "https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js",
+    "file": "browser_vendor/9ca60ac72cdb.js",
+    "sha256": "fde878a4f7aebe548b071eaaf343d898f66d275e93970abe95d8ca5fda290b51",
+    "bytes": 601680
+  }
+]

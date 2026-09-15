@@ -1,0 +1,11 @@
+{
+  "objective": 2.156661470420188e-28,
+  "dGW": 7.342788078142027e-15,
+  "rowError": 0.0,
+  "columnError": 0.0,
+  "identityMaxError": 0.0,
+  "maxMetricError": 8.526512829121202e-14,
+  "rotationOrthogonal": true,
+  "rotationDeterminant": 1.0,
+  "maxTransformedCoordinateError": 0.0
+}

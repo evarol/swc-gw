@@ -1,0 +1,22 @@
+{"case": "rotation", "protocol": "ordered", "best": 7.34278807814224e-15, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91289590557783}
+{"case": "rotation", "protocol": "shuffled_matched", "best": 7.34278807814224e-15, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91289590557783}
+{"case": "rotation", "protocol": "shuffled_fresh", "best": 7.34278807814224e-15, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 14.70991061245254}
+{"case": "bend_isometric", "protocol": "ordered", "best": 1.174518296070831e-14, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91289590557783}
+{"case": "bend_isometric", "protocol": "shuffled_matched", "best": 1.174518296070831e-14, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91289590557783}
+{"case": "bend_isometric", "protocol": "shuffled_fresh", "best": 1.174518296070831e-14, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 14.709910612452537}
+{"case": "bend_02", "protocol": "ordered", "best": 0.10989033475656906, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.911030466209553}
+{"case": "bend_02", "protocol": "shuffled_matched", "best": 0.10989033475656906, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.911030466209553}
+{"case": "bend_02", "protocol": "shuffled_fresh", "best": 0.10989033475656906, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 14.682980406415941}
+{"case": "bend_05", "protocol": "ordered", "best": 0.26670072757275903, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91240757312128}
+{"case": "bend_05", "protocol": "shuffled_matched", "best": 0.26670072757275903, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 17.91240757312128}
+{"case": "bend_05", "protocol": "shuffled_fresh", "best": 0.26670072757275903, "bestMatch": 0.9999999999999998, "affectedMatch": 0.9999999999999999, "worstGW": 14.701193113082015}
+{"case": "bend_10", "protocol": "ordered", "best": 0.5415649981724692, "bestMatch": 0.98019801980198, "affectedMatch": 0.9550561797752807, "worstGW": 17.99048283888001}
+{"case": "bend_10", "protocol": "shuffled_matched", "best": 0.5415649981724692, "bestMatch": 0.98019801980198, "affectedMatch": 0.9550561797752807, "worstGW": 17.99048283888001}
+{"case": "bend_10", "protocol": "shuffled_fresh", "best": 0.5415649981724692, "bestMatch": 0.98019801980198, "affectedMatch": 0.9550561797752807, "worstGW": 14.650178174036718}
+{"case": "bend_20", "protocol": "ordered", "best": 1.359453120966372, "bestMatch": 0.9158415841584158, "affectedMatch": 0.8089887640449438, "worstGW": 18.06186600507251}
+{"case": "bend_20", "protocol": "shuffled_matched", "best": 1.359453120966372, "bestMatch": 0.9158415841584158, "affectedMatch": 0.8089887640449438, "worstGW": 18.06186600507251}
+{"case": "bend_20", "protocol": "shuffled_fresh", "best": 1.359453120966372, "bestMatch": 0.9158415841584158, "affectedMatch": 0.8089887640449438, "worstGW": 14.754788763384289}
+{"case": "bend_40", "protocol": "ordered", "best": 4.424258301718535, "bestMatch": 0.8069306930693069, "affectedMatch": 0.6067415730337079, "worstGW": 18.550379561481368}
+{"case": "bend_40", "protocol": "shuffled_matched", "best": 4.424258301718535, "bestMatch": 0.8069306930693069, "affectedMatch": 0.6067415730337079, "worstGW": 18.550379561481368}
+{"case": "bend_40", "protocol": "shuffled_fresh", "best": 4.424258301718535, "bestMatch": 0.8069306930693069, "affectedMatch": 0.6067415730337079, "worstGW": 15.463694036901442}
+Complete: 7 geometries × 3 ordering protocols × 12 starts = 252 GW runs.

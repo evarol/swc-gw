@@ -1,0 +1,183 @@
+{
+  "experiment": "rotation",
+  "nodes": [
+    202,
+    202
+  ],
+  "connectors": 202,
+  "distance": 7.34278807814224e-15,
+  "matchingMass": 1.0000000000000007,
+  "allDiagonal": true,
+  "equalDisplayDistances": true,
+  "equalDisplayAdjacency": true,
+  "labels": [
+    "Ti8 · Tree distance",
+    "Ti8 180° · Tree distance",
+    "Transport · T",
+    "Ti8 · Weighted adjacency",
+    "Ti8 180° · Weighted adjacency",
+    "Δ tree distance",
+    "Δ edge length"
+  ],
+  "matrices": [
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ],
+    [
+      202,
+      202
+    ]
+  ],
+  "transformError": 0,
+  "matrixHover": {
+    "selection": {
+      "a": [
+        75
+      ],
+      "b": [
+        75
+      ],
+      "source": "t",
+      "pin": false,
+      "pair": [
+        75,
+        75
+      ],
+      "explicitA": [
+        75
+      ],
+      "explicitB": [
+        75
+      ]
+    },
+    "spatial": {
+      "a": [
+        75
+      ],
+      "b": [
+        75
+      ],
+      "source": "t",
+      "pin": false,
+      "pair": [
+        75,
+        75
+      ],
+      "explicitA": [
+        75
+      ],
+      "explicitB": [
+        75
+      ]
+    },
+    "marks": [
+      {
+        "key": "da",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "db",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "t",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "aa",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "ab",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "dd",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      },
+      {
+        "key": "ad",
+        "rows": [
+          75
+        ],
+        "cols": [
+          75
+        ]
+      }
+    ]
+  },
+  "spatialHover": {
+    "a": [
+      0
+    ],
+    "b": [
+      0
+    ],
+    "source": "spatial",
+    "explicitA": [],
+    "explicitB": [
+      0
+    ]
+  },
+  "switching": true,
+  "mobile": {
+    "width": 390,
+    "scroll": 390,
+    "labelsOverflow": "false",
+    "canvases": 1
+  },
+  "errors": [],
+  "networkRequests": [],
+  "passed": true
+}

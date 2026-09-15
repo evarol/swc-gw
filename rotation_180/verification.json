@@ -1,0 +1,39 @@
+{
+  "rotationDegrees": 180,
+  "axis": "Z",
+  "centerDefinition": "arithmetic mean of all original node coordinates",
+  "centroid": [
+    74.39085643564358,
+    438.8853267326731,
+    117.79329207920793
+  ],
+  "rotationMatrix": [
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateFormula": "XYZ_B = (XYZ_A - centroid) @ R.T + centroid",
+  "maxAdjacencyDifference": 1.199040866595169e-14,
+  "maxTreeDistanceDifference": 8.526512829121202e-14,
+  "identityObjective": 2.1566614704203126e-28,
+  "identityDistance": 7.34278807814224e-15,
+  "matchedIdMass": 0.9999999999999998,
+  "maxIdentityTransportDifference": 0.0,
+  "sourceSha256": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9",
+  "rotatedSwcSha256": "4f67fcedc5c23c1e44c7efbab9c5c90d208df664a5a99cc5f8dd644a353beb7e",
+  "nodesRetained": 202,
+  "method": "Same uniform masses, tree distances, 12 feasible initializations, loss, solver, scaling and tolerances as Ti8/Ti9. No imposed node-ID correspondence.",
+  "interpretation": "Rigid rotation preserves segment lengths and tree distances: exact GW is zero. Numeric residuals are floating-point roundoff. The reported transport is solver output, not an injected identity plan."
+}

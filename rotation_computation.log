@@ -1,0 +1,51 @@
+{"initialization": "independent_product", "objective": 2.1566614704203126e-28, "dGW": 7.34278807814224e-15, "rmsDistortion": 1.468557615628448e-14, "iterations": 2, "finalScaledObjective": -3.469446951953614e-17, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.9999999999999998}
+{"initialization": "root_distance", "objective": 2.1566614704203126e-28, "dGW": 7.34278807814224e-15, "rmsDistortion": 1.468557615628448e-14, "iterations": 1, "finalScaledObjective": -9.480864938011856e-18, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.9999999999999998}
+{"initialization": "mean_distance", "objective": 2.1566614704203126e-28, "dGW": 7.34278807814224e-15, "rmsDistortion": 1.468557615628448e-14, "iterations": 1, "finalScaledObjective": -9.480864938011856e-18, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.9999999999999998}
+{"initialization": "random_emd_seed_0", "objective": 768.1034725323518, "dGW": 13.857339864962826, "rmsDistortion": 27.714679729925653, "iterations": 9, "finalScaledObjective": 0.02091620466806039, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.2821782178217822}
+{"initialization": "random_emd_seed_1", "objective": 721.4631345012649, "dGW": 13.430032897402606, "rmsDistortion": 26.860065794805212, "iterations": 8, "finalScaledObjective": 0.01964614289782844, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.019801980198019802}
+{"initialization": "random_emd_seed_2", "objective": 781.0420821639202, "dGW": 13.973565061965399, "rmsDistortion": 27.947130123930798, "iterations": 8, "finalScaledObjective": 0.021268535593322053, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.009900990099009901}
+{"initialization": "random_emd_seed_3", "objective": 1283.4873588962682, "dGW": 17.91289590557783, "rmsDistortion": 35.82579181115566, "iterations": 12, "finalScaledObjective": 0.03495060919206025, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.08415841584158415}
+{"initialization": "random_emd_seed_4", "objective": 768.2884588246404, "dGW": 13.85900843156393, "rmsDistortion": 27.71801686312786, "iterations": 8, "finalScaledObjective": 0.020921242024729992, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.2722772277227723}
+{"initialization": "random_emd_seed_5", "objective": 700.889450028167, "dGW": 13.237158400013264, "rmsDistortion": 26.47431680002653, "iterations": 5, "finalScaledObjective": 0.01908590145822568, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.6336633663366337}
+{"initialization": "random_emd_seed_6", "objective": 705.6943358932745, "dGW": 13.282453989128614, "rmsDistortion": 26.564907978257228, "iterations": 7, "finalScaledObjective": 0.019216743173899656, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.5148514851485149}
+{"initialization": "random_emd_seed_7", "objective": 747.1805339333694, "dGW": 13.66730161675458, "rmsDistortion": 27.33460323350916, "iterations": 11, "finalScaledObjective": 0.020346452698900896, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.0049504950495049506}
+{"initialization": "random_emd_seed_8", "objective": 609.9095423176936, "dGW": 12.348173370155742, "rmsDistortion": 24.696346740311483, "iterations": 17, "finalScaledObjective": 0.01660843007786639, "rowMarginalMaxError": 0.0, "colMarginalMaxError": 0.0, "nNonzero": 202, "stoppedBeforeMaxIterations": true, "matchedIdMass": 0.09900990099009901}
+{
+  "rotationDegrees": 180,
+  "axis": "Z",
+  "centerDefinition": "arithmetic mean of all original node coordinates",
+  "centroid": [
+    74.39085643564358,
+    438.8853267326731,
+    117.79329207920793
+  ],
+  "rotationMatrix": [
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateFormula": "XYZ_B = (XYZ_A - centroid) @ R.T + centroid",
+  "maxAdjacencyDifference": 1.199040866595169e-14,
+  "maxTreeDistanceDifference": 8.526512829121202e-14,
+  "identityObjective": 2.1566614704203126e-28,
+  "identityDistance": 7.34278807814224e-15,
+  "matchedIdMass": 0.9999999999999998,
+  "maxIdentityTransportDifference": 0.0,
+  "sourceSha256": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9",
+  "rotatedSwcSha256": "4f67fcedc5c23c1e44c7efbab9c5c90d208df664a5a99cc5f8dd644a353beb7e",
+  "nodesRetained": 202,
+  "method": "Same uniform masses, tree distances, 12 feasible initializations, loss, solver, scaling and tolerances as Ti8/Ti9. No imposed node-ID correspondence.",
+  "interpretation": "Rigid rotation preserves segment lengths and tree distances: exact GW is zero. Numeric residuals are floating-point roundoff. The reported transport is solver output, not an injected identity plan."
+}

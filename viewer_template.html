@@ -1,0 +1,266 @@
+<div id="motor-gw-linked">
+  <style>
+    #motor-gw-linked { position:relative; color:var(--foreground); }
+    #motor-gw-linked .gw-heading { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px 24px; }
+    #motor-gw-linked .gw-heading h2 { margin:0; }
+    #motor-gw-linked .gw-summary { margin:6px 0 14px; }
+    #motor-gw-linked .gw-spatial { position:relative; height:410px; width:100%; border:1px solid var(--border); overflow:hidden; }
+    #motor-gw-linked .gw-spatial canvas { display:block; width:100%; height:100%; touch-action:none; }
+    #motor-gw-linked .gw-controls { margin:12px 0; }
+    #motor-gw-linked .gw-status { min-height:2.5em; margin:8px 0; overflow-wrap:anywhere; }
+    #motor-gw-linked .gw-matrices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-areas:"da t db" "aa t ab"; gap:20px 12px; align-items:start; }
+    #motor-gw-linked .gw-matrix { min-width:0; }
+    #motor-gw-linked .gw-matrix h3 { margin:0 0 4px; }
+    #motor-gw-linked .gw-matrix[data-key="da"] {grid-area:da;}
+    #motor-gw-linked .gw-matrix[data-key="db"] {grid-area:db;}
+    #motor-gw-linked .gw-matrix[data-key="aa"] {grid-area:aa;}
+    #motor-gw-linked .gw-matrix[data-key="ab"] {grid-area:ab;}
+    #motor-gw-linked .gw-matrix[data-key="t"] {grid-area:t; align-self:center;}
+    #motor-gw-linked .gw-matrix[data-key="dd"] {grid-area:dd;}
+    #motor-gw-linked .gw-matrix[data-key="ad"] {grid-area:ad;}
+    #motor-gw-linked .gw-matrices.has-deltas {grid-template-areas:"da t db" "aa t ab" "dd . ad";}
+    #motor-gw-linked .gw-study-overview {margin-top:24px;}
+    #motor-gw-linked .gw-matrix-svg { display:block; overflow:visible; width:100%; }
+    #motor-gw-linked .gw-matrix-svg text {fill:var(--foreground); font-size:12px;}
+    #motor-gw-linked .gw-legend {display:flex; align-items:center; gap:6px; margin-left:64px; flex-wrap:wrap;}
+    #motor-gw-linked .gw-gradient { width:58px; height:8px; }
+    #motor-gw-linked .gw-tooltip { position:absolute; display:none; max-width:300px; pointer-events:none; z-index:6; background:var(--popover); color:var(--popover-foreground); padding:8px 10px; border:1px solid var(--border); }
+    #motor-gw-linked .gw-swatch {display:inline-block; width:9px; height:9px; margin-right:5px;}
+    #motor-gw-linked .gw-labels {display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin:6px 0;}
+    @media(max-width:760px) {
+      #motor-gw-linked .gw-matrices {grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"da db" "aa ab" "t t";}
+      #motor-gw-linked .gw-matrix[data-key="t"] {width:min(100%,460px);justify-self:center;}
+      #motor-gw-linked .gw-matrices.has-deltas {grid-template-areas:"da db" "aa ab" "t t" "dd ad";}
+    }
+    @media(max-width:530px) {
+      #motor-gw-linked .gw-spatial {height:330px;}
+      #motor-gw-linked .gw-matrices {display:flex;flex-direction:column;}
+      #motor-gw-linked .gw-matrix {width:100%;}
+    }
+  </style>
+  <div class="viz-controls gw-controls">
+    <label class="form-label">Experiment<select id="gw-experiment" class="form-select" aria-label="Select neuron comparison experiment"></select></label>
+    <label class="form-label" id="gw-order-label">Target order & initialization protocol<select id="gw-order" class="form-select" aria-label="Target node order and initialization protocol"></select></label>
+    <label class="form-label" id="gw-start-label">GW initialization<select id="gw-start" class="form-select" aria-label="Select a GW initialization and transport result"></select></label>
+  </div>
+  <div class="gw-heading"><h2>Ti8 ↔ Ti9 · Tree geometry & coupling</h2><span id="gw-value" class="tabular-nums"></span></div>
+  <div class="gw-summary text-small" id="gw-summary"></div>
+  <div class="gw-summary text-small" id="gw-experiment-detail" hidden></div>
+  <div class="gw-summary text-small" id="gw-run-detail" hidden></div>
+  <div class="gw-labels text-small"><span><span class="gw-swatch" style="background:var(--viz-series-1)"></span>A · Ti8 · 202 nodes</span><span><span class="gw-swatch" style="background:var(--viz-series-2)"></span>B · Ti9 · 193 nodes</span></div>
+  <div id="gw-spatial" class="gw-spatial" role="img" aria-label="Interactive three dimensional Ti8 and Ti9 motor neuron skeletons with transport connectors"></div>
+  <div class="viz-controls gw-controls">
+    <label class="form-label">Spatial layout<select class="form-select" id="gw-layout"><option value="separated">Separated · same scale</option><option value="native">Native coordinates · shared frame</option></select></label>
+    <label class="form-check"><input class="form-check-input" id="gw-connectors" type="checkbox" checked><span class="form-check-label">Transport connectors</span></label>
+    <label class="form-label"><span id="gw-node-a-label">Ti8 node</span><select class="form-select" id="gw-node-a" aria-label="Select Ti8 SWC node"></select></label>
+    <label class="form-label"><span id="gw-node-b-label">Ti9 node</span><select class="form-select" id="gw-node-b" aria-label="Select Ti9 SWC node"></select></label>
+  </div>
+  <div class="gw-status text-small tabular-nums" id="gw-status"></div>
+  <div class="text-small" id="gw-match-legend" hidden><span class="gw-swatch" style="background:var(--viz-series-4)"></span><span id="gw-match-legend-text"></span></div>
+  <div class="gw-matrices">
+    <section class="gw-matrix" data-key="da"><h3>Ti8 · Tree distance</h3><div class="text-small">202 × 202 · path length</div><svg class="gw-matrix-svg" role="img" aria-label="Ti8 shortest path tree distance matrix"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="db"><h3>Ti9 · Tree distance</h3><div class="text-small">193 × 193 · path length</div><svg class="gw-matrix-svg" role="img" aria-label="Ti9 shortest path tree distance matrix"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="t"><h3>Transport · T</h3><div class="text-small">202 × 193 · joint probability mass</div><svg class="gw-matrix-svg" role="img" aria-label="Gromov Wasserstein transport matrix, Ti8 rows and Ti9 columns"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="aa"><h3>Ti8 · Weighted adjacency</h3><div class="text-small">202 × 202 · edge length; 0 = no edge</div><svg class="gw-matrix-svg" role="img" aria-label="Ti8 adjacency matrix weighted by Euclidean parent child segment lengths"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="ab"><h3>Ti9 · Weighted adjacency</h3><div class="text-small">193 × 193 · edge length; 0 = no edge</div><svg class="gw-matrix-svg" role="img" aria-label="Ti9 adjacency matrix weighted by Euclidean parent child segment lengths"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="dd" hidden><h3>Δ tree distance</h3><div class="text-small">Target − source · known node-ID alignment</div><svg class="gw-matrix-svg" role="img" aria-label="Change in tree distance aligned by known source node identity"></svg><div class="gw-legend text-small"></div></section>
+    <section class="gw-matrix" data-key="ad" hidden><h3>Δ weighted adjacency</h3><div class="text-small">Target − source · known node-ID alignment</div><svg class="gw-matrix-svg" role="img" aria-label="Change in edge length aligned by known source node identity"></svg><div class="gw-legend text-small"></div></section>
+  </div>
+  <section class="gw-study-overview" id="gw-study-overview" hidden><h3>Deformation & initialization comparison</h3><div class="text-small" id="gw-study-caption"></div><div class="table-responsive"><table class="table table-sm tabular-nums"><thead><tr><th>Experiment</th><th>RMS ΔD</th><th>Best GW</th><th>True-match mass</th><th>In bent branches</th><th>Random-start median match</th><th>Worst GW</th></tr></thead><tbody id="gw-study-rows"></tbody></table></div></section>
+  <div class="tooltip gw-tooltip text-small" role="tooltip"></div>
+  <span class="sr-only" id="gw-announcement" aria-live="polite"></span>
+  <script type="application/json" id="motor-gw-data">__PAYLOAD__</script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script>__SPATIAL_SCRIPT__</script>
+  <script>
+  (() => {
+    'use strict';
+    const root=document.getElementById('motor-gw-linked');
+    const bundle=JSON.parse(root.querySelector('#motor-gw-data').textContent);
+    const experiments=bundle.experiments||[{key:'original',label:'Ti8 vs Ti9',data:bundle}];
+    const clone=root.cloneNode(true);clone.querySelectorAll('script').forEach(el=>el.remove());const markup=clone.innerHTML;
+    function renderExperiment(key,orderKey='shuffled_fresh',runKey='best'){
+    if(window.MOTOR_GW?.destroy)window.MOTOR_GW.destroy();
+    root.innerHTML=markup;root.dataset.labelOverflow='false';
+    const experiment=experiments.find(e=>e.key===key)||experiments[0];
+    const base=experiment.data;
+    const variant=base.orderVariants?.find(v=>v.key===orderKey)||base.orderVariants?.[0];
+    const selectedRun=variant?(runKey==='best'?variant.bestRunIndex:Number(runKey)):null;
+    const run=variant?.runs[selectedRun];
+    const raw={...base,gw:run?{...base.gw,...run,runs:variant.runs,bestRunIndex:variant.bestRunIndex}:base.gw};
+    const chooser=root.querySelector('#gw-experiment');experiments.forEach(e=>chooser.add(new Option(e.label,e.key)));chooser.value=experiment.key;
+    chooser.addEventListener('change',()=>{location.hash=chooser.value;renderExperiment(chooser.value,orderKey);});
+    const trees=raw.trees.map(t=>({...((typeof t==='string')?bundle.treePool[t]:t)}));
+    if(variant&&variant.key!=='ordered'){
+      const perm=bundle.studyPermutation,inv=[];perm.forEach((v,i)=>inv[v]=i);const target=trees[1];
+      trees[1]={...target,nodes:perm.map(i=>target.nodes[i]),edges:target.edges.map(([i,j,w])=>[inv[i],inv[j],w]),rootIndex:inv[target.rootIndex]};
+    }
+    raw.trees=trees;
+    const coupling=run?(run.plan.permutation?run.plan.permutation.map((j,i)=>({i,j,mass:raw.gw.p[i]})):run.plan.entries.map(([i,j,mass])=>({i,j,mass}))):raw.gw.coupling.map(v=>Array.isArray(v)?{i:v[0],j:v[1],mass:v[2]}:v);
+    if(raw.study){coupling.forEach(c=>c.correct=trees[0].nodes[c.i].id===trees[1].nodes[c.j].id);root.querySelector('#gw-match-legend').hidden=false;root.querySelector('#gw-match-legend-text').textContent='Incorrect synthetic node-ID matches: '+coupling.filter(c=>!c.correct).length+' connectors · selected connections use the highlight color';}
+    raw.gw.coupling=coupling;
+    const fmt=v=>v===0?'0':Math.abs(v)<0.01?d3.format('.3g')(v):d3.format(',.3f')(v).replace(/\.?0+$/,'');
+    const orderSelect=root.querySelector('#gw-order'),startSelect=root.querySelector('#gw-start');
+    root.querySelector('#gw-order-label').hidden=!variant;root.querySelector('#gw-start-label').hidden=!variant;
+    if(variant){
+      base.orderVariants.forEach(v=>orderSelect.add(new Option(v.label,v.key)));orderSelect.value=variant.key;
+      orderSelect.addEventListener('change',()=>renderExperiment(experiment.key,orderSelect.value));
+      startSelect.add(new Option('Best of 12 · '+variant.runs[variant.bestRunIndex].initialization,'best'));
+      variant.runs.forEach((r,i)=>startSelect.add(new Option(r.initialization+' · GW '+fmt(r.dGW)+' · match '+fmt(100*r.matchedIdMass)+'%',i)));
+      startSelect.value=runKey;startSelect.addEventListener('change',()=>renderExperiment(experiment.key,variant.key,startSelect.value));
+    }
+    const token=name=>{const e=document.createElement('span');e.style.color='var('+name+')';root.appendChild(e);const c=getComputedStyle(e).color;e.remove();return c;};
+    const getColors=()=>({a:token('--viz-series-1'),b:token('--viz-series-2'),focus:token('--viz-series-3'),wrong:token('--viz-series-4'),foreground:token('--foreground'),border:token('--border'),background:token('--background')});
+    let colors=getColors();
+    const decode=(s,n)=>{
+      const bytes=Uint8Array.from(atob(s),c=>c.charCodeAt(0));const view=new DataView(bytes.buffer);
+      const a=new Float32Array(n*n);let k=0;
+      for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){const v=view.getFloat32(k*4,true);a[i*n+j]=v;a[j*n+i]=v;k++;}
+      if(k*4!==bytes.length)throw Error('Distance payload dimensions do not match.');
+      return a;
+    };
+    function treeDistances(t){
+      if(t.distanceUpperF32)return decode(t.distanceUpperF32,t.nodes.length);
+      const n=t.nodes.length,neighbors=Array.from({length:n},()=>[]),d=new Float64Array(n*n);
+      for(const[i,j,w]of t.edges){neighbors[i].push([j,w]);neighbors[j].push([i,w]);}
+      for(let source=0;source<n;source++){const stack=[[source,-1,0]];while(stack.length){const[i,parent,value]=stack.pop();d[source*n+i]=value;for(const[j,w]of neighbors[i])if(j!==parent)stack.push([j,i,value+w]);}}
+      return d;
+    }
+    const D=trees.map(treeDistances);
+    const A=trees.map(t=>{const a=new Float64Array(t.nodes.length**2);for(const [i,j,w]of t.edges){a[i*t.nodes.length+j]=w;a[j*t.nodes.length+i]=w;}return a;});
+    const n=trees[0].nodes.length,m=trees[1].nodes.length;
+    root.querySelector('.gw-heading h2').textContent=trees[0].label+' ↔ '+trees[1].label+' · Tree geometry & coupling';
+    root.querySelectorAll('.gw-labels > span').forEach((el,k)=>{el.lastChild.textContent=(k?'B':'A')+' · '+trees[k].label+' · '+trees[k].nodes.length+' nodes';});
+    trees.forEach((t,k)=>{root.querySelector('#gw-node-'+(k?'b':'a')+'-label').textContent=t.label+' node';root.querySelector('#gw-node-'+(k?'b':'a')).setAttribute('aria-label','Select '+t.label+' SWC node');});
+    root.querySelector('#gw-spatial').setAttribute('aria-label','Interactive three dimensional '+trees[0].label+' and '+trees[1].label+' skeletons with transport connectors');
+    if(raw.rotation){const detail=root.querySelector('#gw-experiment-detail');detail.hidden=false;detail.textContent='180° about Z through Ti8 centroid · max |Δ tree distance| = '+fmt(raw.rotation.maxTreeDistanceDifference)+' · same-ID transport mass = '+fmt(100*raw.rotation.matchedIdMass)+'%';}
+    if(raw.study){
+      const detail=root.querySelector('#gw-experiment-detail');detail.hidden=false;
+      detail.textContent=raw.deformationLabel+' after 180° Z rotation · '+raw.study.affectedNodeCount+' nodes in selected branches · max displacement '+fmt(raw.study.maxDisplacement)+' · RMS ΔD '+fmt(raw.study.rmsTreeDistanceDifference)+' native units · max edge change '+fmt(100*raw.study.maxRelativeEdgeChange)+'%';
+      const rd=root.querySelector('#gw-run-detail');rd.hidden=false;
+      rd.textContent='True-match mass '+fmt(100*run.matchedIdMass)+'% · bent branches '+fmt(100*run.affectedMatchedMass)+'% · known-correspondence GW '+fmt(raw.study.rmsTreeDistanceDifference/2)+' (evaluation only) · mean match path error '+fmt(run.meanCorrespondencePathError)+' · GW across starts '+fmt(Math.min(...variant.runs.map(r=>r.dGW)))+'–'+fmt(Math.max(...variant.runs.map(r=>r.dGW)))+' · '+(variant.key==='ordered'?'source row order':variant.key==='shuffled_matched'?'shuffled rows + consistently permuted initial plans':'shuffled rows + regenerated initial plans');
+    }
+    const T=new Float64Array(n*m);for(const c of coupling)T[c.i*m+c.j]=c.mass;
+    const p=raw.gw.p,q=raw.gw.q;trees[0].masses=p;trees[1].masses=q;
+    const bestA=Array.from({length:n},(_,i)=>d3.maxIndex(Array.from({length:m},(_,j)=>T[i*m+j])));
+    const bestB=Array.from({length:m},(_,j)=>d3.maxIndex(Array.from({length:n},(_,i)=>T[i*m+j])));
+    const nodeName=(k,i)=>trees[k].label+' #'+trees[k].nodes[i].id;
+    const unique=a=>[...new Set(a)];
+    let state=null,pinned=null,spatial=null;
+    const complete=s=>{
+      if(!s)return null;const z={...s,a:[...(s.a||[])],b:[...(s.b||[])]};
+      z.explicitA=[...z.a];z.explicitB=[...z.b];
+      if(z.a.length&&!z.b.length)z.b=unique(z.a.map(i=>bestA[i]));
+      else if(z.b.length&&!z.a.length)z.a=unique(z.b.map(j=>bestB[j]));
+      return z;
+    };
+    const status=root.querySelector('#gw-status');
+    const allStatus=coupling.length+' positive transport entries · all '+(n+m)+' SWC nodes · uniform node mass · XYZ in native units (unverified)';
+    function describe(s){
+      if(!s)return allStatus;
+      let text=(s.a.map(i=>nodeName(0,i)).join(', '))+' ↔ '+s.b.map(j=>nodeName(1,j)).join(', ');
+      if(s.pair){const[i,j]=s.pair,v=T[i*m+j];text+=' · T = '+fmt(v)+' · '+fmt(100*v/p[i])+'% of Ti8 node mass';}
+      else if(s.metric){text+=' · '+s.metric.name+' = '+fmt(s.metric.value)+' native units';}
+      else {const i=s.a[0],j=s.b[0];if(i!==undefined&&j!==undefined)text+=' · strongest match: '+fmt(100*T[i*m+j]/(s.explicitA.length?p[i]:q[j]))+'% of node mass';}
+      if(!s.explicitA.length||!s.explicitB.length)text+=' · counterpart = strongest transport';
+      return text;
+    }
+    function select(s){
+      if(s&&s.pin){const z={...s,pin:false};pinned=JSON.stringify(pinned)===JSON.stringify(z)?null:z;s=pinned;root.querySelector('#gw-announcement').textContent=pinned?'Selection pinned':'Selection cleared';}
+      state=complete(s||pinned);root.dataset.selectedA=state?state.a.join(','):'';root.dataset.selectedB=state?state.b.join(','):'';
+      status.textContent=describe(state);if(spatial)spatial.setSelection(state);for(const chart of charts)chart.highlight();
+      root.querySelector('#gw-node-a').value=state&&state.a.length?state.a[0]:'';
+      root.querySelector('#gw-node-b').value=state&&state.b.length?state.b[0]:'';
+    }
+    const maxD=d3.max(D.flatMap(a=>[d3.max(a)])),maxA=d3.max(A.flatMap(a=>[d3.max(a)])),maxT=d3.max(T);
+    const truth=raw.study?trees[0].nodes.map(node=>trees[1].nodes.findIndex(b=>b.id===node.id)):null;
+    const defs=[{key:'da',values:D[0],rows:n,cols:n,rTree:0,cTree:0,title:'Tree distance',max:maxD,units:'native units',group:'d'},
+      {key:'db',values:D[1],rows:m,cols:m,rTree:1,cTree:1,title:'Tree distance',max:maxD,units:'native units',group:'d'},
+      {key:'t',values:T,rows:n,cols:m,rTree:0,cTree:1,title:'Transport mass',max:maxT,units:'mass',group:'t'},
+      {key:'aa',values:A[0],rows:n,cols:n,rTree:0,cTree:0,title:'Edge length',max:maxA,units:'native units',group:'a'},
+      {key:'ab',values:A[1],rows:m,cols:m,rTree:1,cTree:1,title:'Edge length',max:maxA,units:'native units',group:'a'}];
+    if(truth){
+      root.querySelector('.gw-matrices').classList.add('has-deltas');
+      for(const[key,matrices,title]of[['dd',D,'Δ tree distance'],['ad',A,'Δ edge length']]){
+        const values=new Float64Array(n*n);for(let i=0;i<n;i++)for(let j=0;j<n;j++){const v=matrices[1][truth[i]*m+truth[j]]-matrices[0][i*n+j];values[i*n+j]=Math.abs(v)<1e-10?0:v;}
+        defs.push({key,values,rows:n,cols:n,rTree:0,cTree:0,title,max:d3.max(values,v=>Math.abs(v)),units:'native units',group:'delta'});
+        root.querySelector('[data-key="'+key+'"]').hidden=false;
+      }
+    }
+    const tooltip=root.querySelector('.gw-tooltip');
+    function tip(event,text){tooltip.textContent=text;tooltip.style.display='block';const b=root.getBoundingClientRect();const w=tooltip.offsetWidth,h=tooltip.offsetHeight;tooltip.style.left=Math.max(0,Math.min(b.width-w,event.clientX-b.left+12))+'px';tooltip.style.top=Math.max(0,Math.min(b.height-h,event.clientY-b.top+14))+'px';}
+    const charts=[];
+    for(const def of defs){
+      const host=root.querySelector('[data-key="'+def.key+'"]'),svg=d3.select(host.querySelector('svg'));
+      host.querySelector('h3').textContent=def.group==='delta'?def.title:def.group==='t'?'Transport · T':trees[def.rTree].label+' · '+(def.group==='d'?'Tree distance':'Weighted adjacency');
+      host.querySelector(':scope > .text-small').textContent=def.group==='delta'?'Target − source · known node-ID alignment; <10⁻¹⁰ shown as 0':def.rows+' × '+def.cols+' · '+(def.group==='t'?'joint probability mass':def.group==='d'?'path length':'edge length; 0 = no edge');
+      svg.attr('aria-label',def.title+' matrix, '+trees[def.rTree].label+' rows and '+trees[def.cTree].label+' columns');
+      let size=0,left=64,top=12,imageURL='';
+      const colorScale=()=>def.group==='delta'?(v=>v===0?colors.background:d3.interpolateRgb(colors.background,v<0?colors.b:colors.a)(Math.pow(Math.abs(v)/(def.max||1),.7))):d3.scaleSequential(t=>d3.interpolateRgb(colors.background,def.group==='t'?colors.focus:colors.a)(Math.pow(t,0.7))).domain([0,def.max]);
+      function raster(){const c=document.createElement('canvas');c.width=def.cols;c.height=def.rows;const ctx=c.getContext('2d');const pixels=ctx.createImageData(c.width,c.height),scale=colorScale();for(let k=0;k<def.values.length;k++){const col=d3.rgb(scale(def.values[k]));pixels.data.set([col.r,col.g,col.b,255],k*4);}ctx.putImageData(pixels,0,0);imageURL=c.toDataURL();}
+      function highlight(){
+        svg.selectAll('.gw-selection-mark').remove();if(!state)return;
+        const row=def.rTree===0?state.a:state.b,col=def.cTree===0?state.a:state.b;
+        for(const i of row)svg.append('rect').attr('class','gw-selection-mark').attr('data-row',i).attr('x',left).attr('y',top+i*size/def.rows).attr('width',size).attr('height',Math.max(1.5,size/def.rows)).attr('fill',colors.focus).attr('opacity',.7).attr('pointer-events','none');
+        for(const j of col)svg.append('rect').attr('class','gw-selection-mark').attr('data-col',j).attr('x',left+j*size/def.cols).attr('y',top).attr('width',Math.max(1.5,size/def.cols)).attr('height',size).attr('fill',colors.focus).attr('opacity',.7).attr('pointer-events','none');
+        if(row.length&&col.length)for(const i of row)for(const j of col)svg.append('rect').attr('class','gw-selection-mark').attr('x',left+(j+.5)*size/def.cols-4).attr('y',top+(i+.5)*size/def.rows-4).attr('width',8).attr('height',8).attr('fill','none').attr('stroke',colors.foreground).attr('stroke-width',1.5).attr('pointer-events','none');
+      }
+      function draw(){
+        const width=host.clientWidth;size=Math.max(130,width-left-10);const height=top+size+57;
+        svg.attr('viewBox','0 0 '+width+' '+height).attr('height',height);svg.selectAll('*').remove();
+        svg.append('title').text(def.title+'; '+def.rows+' rows by '+def.cols+' columns. Hover or tap rows, columns, and cells to link with the skeletons.');
+        svg.append('rect').attr('data-chart-frame','').attr('x',left).attr('y',top).attr('width',size).attr('height',size).attr('fill','none').attr('stroke',colors.border);
+        svg.append('image').attr('x',left).attr('y',top).attr('width',size).attr('height',size).attr('href',imageURL).attr('preserveAspectRatio','none').style('image-rendering','pixelated');
+        const ticks=count=>[0,Math.floor((count-1)/3),Math.floor(2*(count-1)/3),count-1];
+        const xs=d3.scaleLinear().domain([0,def.cols]).range([left,left+size]),ys=d3.scaleLinear().domain([0,def.rows]).range([top,top+size]);
+        const xa=svg.append('g').attr('transform','translate(0,'+(top+size)+')').call(d3.axisBottom(xs).tickValues(ticks(def.cols).map(i=>i+.5)).tickFormat(v=>trees[def.cTree].nodes[Math.floor(v)].id).tickSize(3));
+        xa.selectAll('text').filter((d,i)=>i===0).attr('text-anchor','start');xa.selectAll('text').filter((d,i)=>i===3).attr('text-anchor','end');
+        svg.append('g').attr('transform','translate('+left+',0)').call(d3.axisLeft(ys).tickValues(ticks(def.rows).map(i=>i+.5)).tickFormat(v=>trees[def.rTree].nodes[Math.floor(v)].id).tickSize(3));
+        svg.selectAll('.domain,.tick line').attr('stroke',colors.border);
+        svg.append('text').attr('class','axis-title').attr('data-axis','x').attr('x',left+size/2).attr('y',height-9).attr('text-anchor','middle').text(trees[def.cTree].label+' node (SWC ID)');
+        svg.append('text').attr('class','axis-title').attr('data-axis','y').attr('transform','translate(15,'+(top+size/2)+') rotate(-90)').attr('text-anchor','middle').text(trees[def.rTree].label+' node (SWC ID)');
+        svg.append('rect').attr('data-chart-hit','').attr('data-chart-hover-overlay','cross-series').attr('x',left).attr('y',top).attr('width',size).attr('height',size).attr('fill','transparent');
+        const lg=host.querySelector('.gw-legend');lg.replaceChildren();lg.append(def.group==='delta'?fmt(-def.max):'0');const gradient=document.createElement('span');gradient.className='gw-gradient';gradient.style.background=def.group==='delta'?'linear-gradient(to right,'+colorScale()(-def.max)+','+colors.background+','+colorScale()(def.max)+')':'linear-gradient(to right,'+colorScale()(0)+','+colorScale()(def.max)+')';lg.append(gradient,fmt(def.max)+' '+def.units);
+        highlight();
+        requestAnimationFrame(()=>{const texts=[...svg.node().querySelectorAll('.tick text,.axis-title')];root.dataset.labelOverflow=texts.some(e=>{const b=e.getBoundingClientRect(),s=svg.node().getBoundingClientRect();return b.left<s.left-1||b.right>s.right+1;})?'true':root.dataset.labelOverflow||'false';});
+      }
+      function hit(event,pin=false){
+        const[x,y]=d3.pointer(event,svg.node());let i=y>=top&&y<top+size?Math.floor((y-top)/size*def.rows):null,j=x>=left&&x<left+size?Math.floor((x-left)/size*def.cols):null;
+        if(i===null&&j===null){tooltip.style.display='none';select(null);return;}
+        if(i===null&&y<top){tooltip.style.display='none';select(null);return;}
+        const s={a:[],b:[],source:def.key,pin};
+        const add=(k,v)=>{if(v!==null)(k===0?s.a:s.b).push(v);};add(def.rTree,i);add(def.cTree,j);s.a=unique(s.a);s.b=unique(s.b);
+        if(def.group==='delta')s.b=s.a.map(i=>truth[i]);
+        let text='';
+        if(i!==null&&j!==null){const v=def.values[i*def.cols+j];text=nodeName(def.rTree,i)+' → '+nodeName(def.cTree,j)+' · '+def.title+' = '+fmt(v)+' '+def.units;if(def.group==='t'){s.pair=[i,j];text+=' · row fraction '+fmt(100*v/p[i])+'% · column fraction '+fmt(100*v/q[j])+'%';}else s.metric={name:def.title,value:v};}
+        else text=nodeName(i!==null?def.rTree:def.cTree,i!==null?i:j)+(i!==null?' · row':' · column');
+        select(s);tip(event,text);
+      }
+      svg.on('pointermove',event=>hit(event)).on('pointerleave',()=>{tooltip.style.display='none';select(null);}).on('click',event=>hit(event,true));
+      raster();const observer=new ResizeObserver(draw);const chart={def,draw,highlight,recolor(){raster();draw();},geometry:()=>({left,top,size}),destroy(){observer.disconnect();}};charts.push(chart);observer.observe(host);draw();
+    }
+    trees.forEach((tree,k)=>{const el=root.querySelector(k===0?'#gw-node-a':'#gw-node-b');el.add(new Option('No pinned selection',''));tree.nodes.forEach((node,i)=>el.add(new Option('#'+node.id,i)));el.addEventListener('change',()=>{if(el.value===''){pinned=null;select(null);}else{pinned={a:k===0?[+el.value]:[],b:k===1?[+el.value]:[],source:'node-select'};select(pinned);root.querySelector('#gw-announcement').textContent=describe(state);}});});
+    spatial=window.createMotorSpatial({container:root.querySelector('#gw-spatial'),trees,coupling,colors,onSelect:select});
+    root.querySelector('#gw-layout').addEventListener('change',event=>spatial.setLayout(event.target.value));
+    root.querySelector('#gw-connectors').addEventListener('change',event=>spatial.setConnectors(event.target.checked));
+    root.querySelector('#gw-value').textContent='GW distance ≈ '+fmt(raw.gw.dGW)+' native units';
+    root.querySelector('#gw-summary').textContent='½√(squared GW loss) · loss '+fmt(raw.gw.objective)+' · '+(variant?(runKey==='best'?'best of 12: ':'selected start: ')+run.initialization:'best of '+raw.gw.nStarts+' starts')+' · full trees, uniform node mass';
+    const cases=experiments.filter(e=>e.data.orderVariants);
+    if(cases.length){
+      root.querySelector('#gw-study-overview').hidden=false;root.querySelector('#gw-study-caption').textContent=(variant?.label||'Shuffled · fresh initial plans')+' · Bow % = nominal amplitude / subtree path length · RMS ΔD in native units · matched-start shuffle check: max |ΔT| = '+fmt(Math.max(...cases.map(e=>e.data.study.maxMatchedStartPlanDifference)))+' across 84 paired runs.';
+      const tbody=root.querySelector('#gw-study-rows');
+      for(const e of cases){const v=e.data.orderVariants.find(v=>v.key===(variant?.key||'shuffled_fresh')),r=v.runs[v.bestRunIndex],tr=document.createElement('tr'),td=document.createElement('td'),button=document.createElement('button');button.className='btn btn-ghost';button.type='button';button.textContent=e.data.deformationLabel;button.setAttribute('aria-pressed',String(e.key===experiment.key));button.addEventListener('click',()=>{location.hash=e.key;renderExperiment(e.key,v.key);});td.append(button);tr.append(td);
+        for(const value of[fmt(e.data.study.rmsTreeDistanceDifference),fmt(r.dGW),fmt(100*r.matchedIdMass)+'%',fmt(100*r.affectedMatchedMass)+'%',fmt(100*d3.median(v.runs.filter(x=>x.initialization.startsWith('random')).map(x=>x.matchedIdMass)))+'%',fmt(Math.max(...v.runs.map(x=>x.dGW)))]){const cell=document.createElement('td');cell.textContent=value;tr.append(cell);}tbody.append(tr);}
+    }
+    select(null);
+    const themeObserver=new MutationObserver(()=>{const next=getColors();if(JSON.stringify(next)!==JSON.stringify(colors)){colors=next;charts.forEach(c=>c.recolor());if(spatial.setColors)spatial.setColors(colors);}});themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+    const media=matchMedia('(prefers-color-scheme: dark)');const changeTheme=()=>{colors=getColors();charts.forEach(c=>c.recolor());if(spatial.setColors)spatial.setColors(colors);};media.addEventListener('change',changeTheme);
+    window.MOTOR_GW={ready:true,experimentKey:experiment.key,orderKey:variant?.key,runKey,raw,truth,trees,coupling,D,A,T,p,q,charts,spatial,select,getState:()=>state,getPinned:()=>pinned,
+      destroy(){spatial.destroy();charts.forEach(c=>c.destroy());themeObserver.disconnect();media.removeEventListener('change',changeTheme);}};
+    }
+    renderExperiment(location.hash.slice(1)||bundle.defaultExperiment||'original');
+  })();
+  </script>
+</div>

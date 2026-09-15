@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "scope": "Independent reconstruction from SWCs and NPZ; no full solver rerun.",
+  "trees": [
+    {
+      "label": "Ti8",
+      "nodes": 202,
+      "edges": 201,
+      "source_hashes": {
+        "original": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9",
+        "canonical": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9",
+        "copied": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9"
+      },
+      "all_original_nodes_coordinates_parents_preserved": true,
+      "max_adjacency_error": 0.0,
+      "max_tree_distance_error": 0.0,
+      "max_display_float32_error": 7.627131253684638e-06,
+      "adjacency_distance_csvs_match_npz": true
+    },
+    {
+      "label": "Ti9",
+      "nodes": 193,
+      "edges": 192,
+      "source_hashes": {
+        "original": "a99cccee556f473d639b5a45573ecd866c17dae12d54dcc034d1a3601d1ea303",
+        "canonical": "a99cccee556f473d639b5a45573ecd866c17dae12d54dcc034d1a3601d1ea303",
+        "copied": "a99cccee556f473d639b5a45573ecd866c17dae12d54dcc034d1a3601d1ea303"
+      },
+      "all_original_nodes_coordinates_parents_preserved": true,
+      "max_adjacency_error": 0.0,
+      "max_tree_distance_error": 0.0,
+      "max_display_float32_error": 7.629207516401948e-06,
+      "adjacency_distance_csvs_match_npz": true
+    }
+  ],
+  "checks": {
+    "current_crosswalk_inventory_hashes_match": true,
+    "twelve_runs_match_log": true,
+    "selected_run_has_lowest_reported_objective": true,
+    "all_reported_scaled_objectives_correct": true,
+    "reported_iterations_range": [
+      9,
+      28
+    ],
+    "convergence_assessment": "Selected saved plan passes independent first-order Frank\u2013Wolfe stationarity check; per-iteration losses and all candidate plans are not archived, so each restart is checked for log consistency, not independently re-solved."
+  },
+  "limitations": [
+    "Nonconvex GW: best of 12 local solutions, not a certified global minimum.",
+    "Uniform mass per original SWC node depends on source tracing/sample density; no biological node correspondence is established by coupling.",
+    "Distances retain unverified native coordinate units; neither micrometres nor biological full-arbor reconstruction completeness can be asserted.",
+    "Canonical mapping is source-supported; current segmentation identity/release is not independently frozen.",
+    "dGW uses 0.5 * sqrt(square-loss objective); RMS distortion without the factor 0.5 is separately reported."
+  ],
+  "coupling": {
+    "shape": [
+      202,
+      193
+    ],
+    "nonzero_entries": 394,
+    "total_mass": 1.0,
+    "row_marginal_max_error": 0.0,
+    "column_marginal_max_error": 2.5153490401663703e-17,
+    "analysis_sparse_transport_matches_npz": true,
+    "transport_csv_matches_npz": true,
+    "independent_support_objective": 591.6945240365858,
+    "reported_objective_error": -3.637978807091713e-12,
+    "half_sqrt_objective_distance": 12.162385909398964,
+    "rms_structural_distortion": 24.324771818797927,
+    "independent_scaled_frank_wolfe_gap": 1.6683230423893716e-17
+  }
+}

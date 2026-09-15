@@ -1,0 +1,34 @@
+{
+  "Ti8": {
+    "nNodes": 202,
+    "nEdges": 201,
+    "allNodesRetained": true,
+    "sourceHashMatched": true,
+    "adjacencyRoundtripExact": true,
+    "csvRoundtripsExact": true,
+    "displayDistanceMaxAbsError": 7.6271312821063475e-06
+  },
+  "Ti9": {
+    "nNodes": 193,
+    "nEdges": 192,
+    "allNodesRetained": true,
+    "sourceHashMatched": true,
+    "adjacencyRoundtripExact": true,
+    "csvRoundtripsExact": true,
+    "displayDistanceMaxAbsError": 7.629207544823657e-06
+  },
+  "transport": {
+    "shape": [
+      202,
+      193
+    ],
+    "nonzeroCount": 394,
+    "sparseRoundtripExact": true,
+    "csvRoundtripExact": true,
+    "totalMass": 1.0,
+    "rowMarginalMaxError": 0.0,
+    "columnMarginalMaxError": 2.5153490401663703e-17,
+    "independentlyRecomputedObjective": 591.6945240365858
+  },
+  "passed": true
+}

@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "title": "Full-node motor neuron Gromov\u2013Wasserstein comparison: Ti8 \u2194 Ti9",
+  "gw": {
+    "initialization": "root_distance",
+    "objective": 591.6945240365894,
+    "dGW": 12.162385909399001,
+    "rmsDistortion": 24.324771818798002,
+    "iterations": 13,
+    "finalScaledObjective": 0.010280134065524598,
+    "rowMarginalMaxError": 0.0,
+    "colMarginalMaxError": 2.5153490401663703e-17,
+    "nNonzero": 394,
+    "stoppedBeforeMaxIterations": true,
+    "bestRunIndex": 1,
+    "nStarts": 12,
+    "runs": [
+      {
+        "initialization": "independent_product",
+        "objective": 636.2291278699486,
+        "dGW": 12.611791386138892,
+        "rmsDistortion": 25.223582772277783,
+        "iterations": 17,
+        "finalScaledObjective": 0.011053880786786553,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "root_distance",
+        "objective": 591.6945240365894,
+        "dGW": 12.162385909399001,
+        "rmsDistortion": 24.324771818798002,
+        "iterations": 13,
+        "finalScaledObjective": 0.010280134065524598,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "mean_distance",
+        "objective": 636.2291278699486,
+        "dGW": 12.611791386138892,
+        "rmsDistortion": 25.223582772277783,
+        "iterations": 16,
+        "finalScaledObjective": 0.011053880786786539,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_0",
+        "objective": 656.3037759873259,
+        "dGW": 12.809213246598382,
+        "rmsDistortion": 25.618426493196765,
+        "iterations": 11,
+        "finalScaledObjective": 0.011402658856519253,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_1",
+        "objective": 731.4735985753068,
+        "dGW": 13.522884294551465,
+        "rmsDistortion": 27.04576858910293,
+        "iterations": 16,
+        "finalScaledObjective": 0.012708663597976627,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_2",
+        "objective": 778.6708824945199,
+        "dGW": 13.952337460928543,
+        "rmsDistortion": 27.904674921857087,
+        "iterations": 9,
+        "finalScaledObjective": 0.01352867187337537,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_3",
+        "objective": 740.0593814710774,
+        "dGW": 13.602016224360613,
+        "rmsDistortion": 27.204032448721225,
+        "iterations": 28,
+        "finalScaledObjective": 0.012857833474729711,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_4",
+        "objective": 591.8106314103898,
+        "dGW": 12.163579154697743,
+        "rmsDistortion": 24.327158309395486,
+        "iterations": 14,
+        "finalScaledObjective": 0.010282151321592025,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_5",
+        "objective": 752.5324338403661,
+        "dGW": 13.716162308025213,
+        "rmsDistortion": 27.432324616050426,
+        "iterations": 19,
+        "finalScaledObjective": 0.013074540990776689,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_6",
+        "objective": 650.8504363710417,
+        "dGW": 12.755885272797041,
+        "rmsDistortion": 25.511770545594082,
+        "iterations": 13,
+        "finalScaledObjective": 0.01130791222615025,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_7",
+        "objective": 786.5228613055297,
+        "dGW": 14.022507455030373,
+        "rmsDistortion": 28.045014910060747,
+        "iterations": 15,
+        "finalScaledObjective": 0.013665092596531953,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      },
+      {
+        "initialization": "random_emd_seed_8",
+        "objective": 773.9188883935421,
+        "dGW": 13.909698850024954,
+        "rmsDistortion": 27.819397700049908,
+        "iterations": 17,
+        "finalScaledObjective": 0.013446110459584756,
+        "rowMarginalMaxError": 0.0,
+        "colMarginalMaxError": 2.5153490401663703e-17,
+        "nNonzero": 394,
+        "stoppedBeforeMaxIterations": true
+      }
+    ],
+    "solver": "POT ot.gromov.gromov_wasserstein, conditional gradient, unregularized square_loss",
+    "weighting": "uniform mass per original SWC node",
+    "distanceInput": "weighted-tree shortest-path distances",
+    "commonNumericalScale": 239.91057178234396,
+    "entropyRegularization": 0,
+    "objectiveFormula": "sum_ijkl (D_A[i,k] - D_B[j,l])^2 T[i,j] T[k,l]",
+    "distanceConvention": "dGW = 0.5 * sqrt(objective); RMS structural distortion = sqrt(objective)",
+    "units": "native coordinate units (unverified); objective has squared units",
+    "caveat": "nonconvex local optimization; best of 12 feasible initializations, not a certified global minimum; uniform node masses depend on SWC sampling density",
+    "scaledFrankWolfeGap": 0.0,
+    "selfIdentityObjective": -3.637978807091713e-12,
+    "maxIterations": 1000,
+    "toleranceRelative": 1e-12,
+    "toleranceAbsolute": 1e-12
+  },
+  "method": {
+    "adjacency": "symmetric: Euclidean parent\u2013child segment length; zero for nonedges and diagonal",
+    "distance": "sum of segment lengths on the unique tree path; zero diagonal",
+    "matrixOrder": "source SWC file row order; node IDs exported without relabeling",
+    "nodeReduction": "none; all 202 and 193 original vertices retained",
+    "coordinates": "untransformed native XYZ; 3D layout adjustments affect display only"
+  },
+  "environment": {
+    "python": "3.11.14",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "POT": "0.9.7.post1"
+  },
+  "provenance": {
+    "selectedRecords": "selected_provenance.json",
+    "selectedRecordsSha256": "618a6a3a056a45647da5ea5647272a03be60dd14c247a2ca5663f68390bda00c",
+    "motorReadme": "sources/README.md"
+  },
+  "trees": [
+    {
+      "label": "Ti8",
+      "rootId": "648518346477229768",
+      "geometryId": "motor_648518346477229768",
+      "n": 202,
+      "rootIndex": 0,
+      "distanceEncoding": "strict upper triangle, row-major i<j; little-endian float32; implicit zero diagonal; mirror to lower triangle",
+      "units": "native coordinate units (unverified)",
+      "stats": {
+        "nNodes": 202,
+        "nEdges": 201,
+        "nRoots": 1,
+        "nLeaves": 37,
+        "nBranchPoints": 22,
+        "totalCableLength": 845.7347348038346,
+        "diameter": 191.6321723718167,
+        "meanPairDistance": 87.64813871916839,
+        "minEdgeLength": 0.06801470429251973,
+        "maxEdgeLength": 29.920433820384336,
+        "displayDistanceMaxAbsError": 7.627131253684638e-06
+      },
+      "provenance": {
+        "sourcePath": "sources/Ti8.swc",
+        "sourceRelativePath": "sources/Ti8.swc",
+        "sourceSha256": "f2efb8323f7accb5507a06f6a1e0fb865aac0dbf1e03eaddf22cafe0fbf654b9",
+        "originalFilename": "fanc_production_mar2021_left_t1_skel_72553200314029096.swc",
+        "supervoxelId": "72553200314029096",
+        "mappingConfidence": "exact source mapping; segmentation release not frozen",
+        "coordinateFrame": "Tony FANC native SWC export; no additional transform",
+        "completeness": "all source SWC vertices retained; biological full-arbor completeness not independently verified"
+      }
+    },
+    {
+      "label": "Ti9",
+      "rootId": "648518346494055054",
+      "geometryId": "motor_648518346494055054",
+      "n": 193,
+      "rootIndex": 0,
+      "distanceEncoding": "strict upper triangle, row-major i<j; little-endian float32; implicit zero diagonal; mirror to lower triangle",
+      "units": "native coordinate units (unverified)",
+      "stats": {
+        "nNodes": 193,
+        "nEdges": 192,
+        "nRoots": 1,
+        "nLeaves": 26,
+        "nBranchPoints": 18,
+        "totalCableLength": 811.1824612010735,
+        "diameter": 239.91057178234396,
+        "meanPairDistance": 90.33681947455709,
+        "minEdgeLength": 0.2043404022703195,
+        "maxEdgeLength": 16.75028447519623,
+        "displayDistanceMaxAbsError": 7.629207516401948e-06
+      },
+      "provenance": {
+        "sourcePath": "sources/Ti9.swc",
+        "sourceRelativePath": "sources/Ti9.swc",
+        "sourceSha256": "a99cccee556f473d639b5a45573ecd866c17dae12d54dcc034d1a3601d1ea303",
+        "originalFilename": "fanc_production_mar2021_left_t1_skel_72482831636691164.swc",
+        "supervoxelId": "72482831636691164",
+        "mappingConfidence": "exact source mapping; segmentation release not frozen",
+        "coordinateFrame": "Tony FANC native SWC export; no additional transform",
+        "completeness": "all source SWC vertices retained; biological full-arbor completeness not independently verified"
+      }
+    }
+  ]
+}

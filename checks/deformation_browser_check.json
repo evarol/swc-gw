@@ -1,0 +1,150 @@
+{
+  "cases": [
+    {
+      "key": "rotation",
+      "match": 0.9999999999999998,
+      "deltaDMax": 0,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_isometric",
+      "match": 0.9999999999999998,
+      "deltaDMax": 0,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_02",
+      "match": 0.9999999999999998,
+      "deltaDMax": 1.376434979536242,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_05",
+      "match": 0.9999999999999998,
+      "deltaDMax": 3.374612514132963,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_10",
+      "match": 0.98019801980198,
+      "deltaDMax": 6.494683187314649,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_20",
+      "match": 0.9158415841584158,
+      "deltaDMax": 11.623335573318997,
+      "permutationConsistent": true
+    },
+    {
+      "key": "bend_40",
+      "match": 0.8069306930693069,
+      "deltaDMax": 33.665043536197544,
+      "permutationConsistent": true
+    }
+  ],
+  "targetRowHover": {
+    "selection": {
+      "a": [
+        65
+      ],
+      "b": [
+        33
+      ],
+      "source": "db",
+      "pin": false,
+      "explicitA": [],
+      "explicitB": [
+        33
+      ]
+    },
+    "spatial": {
+      "a": [
+        65
+      ],
+      "b": [
+        33
+      ],
+      "source": "db",
+      "pin": false,
+      "explicitA": [],
+      "explicitB": [
+        33
+      ]
+    }
+  },
+  "deltaHover": {
+    "selection": {
+      "a": [
+        80,
+        120
+      ],
+      "b": [
+        176,
+        136
+      ],
+      "source": "dd",
+      "pin": false,
+      "metric": {
+        "name": "Δ tree distance",
+        "value": -0.07059788493487673
+      },
+      "explicitA": [
+        80,
+        120
+      ],
+      "explicitB": [
+        176,
+        136
+      ]
+    },
+    "spatial": {
+      "a": [
+        80,
+        120
+      ],
+      "b": [
+        176,
+        136
+      ],
+      "source": "dd",
+      "pin": false,
+      "metric": {
+        "name": "Δ tree distance",
+        "value": -0.07059788493487673
+      },
+      "explicitA": [
+        80,
+        120
+      ],
+      "explicitB": [
+        176,
+        136
+      ]
+    }
+  },
+  "randomMatch": 0.009900990099009901,
+  "randomMismatchCount": 200,
+  "spatialHover": {
+    "a": [
+      66
+    ],
+    "b": [
+      0
+    ],
+    "source": "spatial",
+    "explicitA": [],
+    "explicitB": [
+      0
+    ]
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "overflow": "false",
+    "canvases": 1
+  },
+  "errors": [],
+  "requests": [],
+  "passed": true
+}
